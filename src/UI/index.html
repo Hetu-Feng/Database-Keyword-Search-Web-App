@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content = "Jiacheng Liu, Hetu Feng">
+		<meta name="keywords" content = "inf551, databases, world, movie, music">
+		<title>Database Search Engine</title>
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+		<script src='index.js'></script>
+		<script>
+			var database;
+			var keyword;            
+            var firebaseConfig = {
+				apiKey: "AIzaSyCawyv14X1P0cUTEjd-Z3P-M7GQ5jV0HR8",
+				authDomain: "inf551-e6e4d.firebaseapp.com",
+				databaseURL: "https://inf551-e6e4d.firebaseio.com",
+				projectId: "inf551-e6e4d",
+				storageBucket: "inf551-e6e4d.appspot.com",
+				messagingSenderId: "18083875817",
+				appId: "1:18083875817:web:dfea1159c6a8522b7b9978"
+			};
+			firebase.initializeApp(firebaseConfig);
+		</script>
+	</head>
+
+	<body>
+		<div class="header">
+  			<h1>WELCOME</h1>
+		</div>
+
+		<div class="topnav">
+			<select id="select" onchange="getDB()" name="Databases" class="dropdown">
+				<option value="none" selected disabled hidden>DATABASE</option> 
+				<option value="movie">MOVIE</option>
+				<option value="music">MUSIC</option>
+				<option value="world">WORLD</option>
+			</select>
+
+			<input autocomplete="off" id="input" oninput="getInput()" type="text" name="keywords" placeholder="KEYWORD(S)" class="inputbox">
+			<button class="searchbutton" type="button" onclick="submit()">GO</button>
+		</div>
+		
+		<div class="row">
+  			<div class="column leftside" ></div>
+  			<div id="search_result" class="column middle"></div>
+  			<div class="column rightside" ></div>
+  		</div>
+
+ 
+
+	</body>
+</html>
+
